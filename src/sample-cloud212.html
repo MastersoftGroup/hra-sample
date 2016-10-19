@@ -1,0 +1,31 @@
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body ng-app="hraAutocomplete">
+	<input id="address" type="text" />
+	<script>
+		jQuery(document).ready(function($){
+			var _address = $('#address'); 
+			_address.on("input", function(){
+				var _addr = _address.val();
+				if (_addr.length <= 3){
+					return;				
+				}
+
+				$.ajax({
+					url: "https://hosted.mastersoftgroup.com/harmony/rest/au/address?sourceOfTruth=AUPAF",
+					data: {fullAddress: _addr},
+					type: "GET",
+					beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Basic security-token');},
+         	success: function(data) {
+						console.debug(data); 
+					}
+				});
+
+				console.debug(_addr);			
+			})
+		})
+	</script>
+</body>
+</html>

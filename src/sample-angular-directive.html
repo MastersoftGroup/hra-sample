@@ -1,0 +1,28 @@
+<html>
+<head>
+	<link rel="stylesheet" href="styles/bootstrap.css" />
+	<link rel="stylesheet" href="styles/jquery-ui.css" />
+	
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/jquery-ui.js"></script>
+	<script src="scripts/angular.js"></script>
+	<script src="scripts/hraAutocomplete.822cfa5.min.js"></script>
+
+</head>
+<body ng-app="myApp">
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Address: </label>
+		<div class="col-sm-9 form-control" 
+			hra-Autocomplete ng-model="test" 
+			hra-login="pson:W51V0lvL0VmgH1LtNxgArurJEH72DDZ0"
+			hra-url="http://dev.hosted.mastersoftgroup.com"
+			hra-sot="AUPAF">
+		</div>
+	</div>
+	<script>
+		angular.module('myApp', [
+			'hraAutocomplete'
+		]);
+	</script>
+</body>
+</html>
