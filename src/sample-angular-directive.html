@@ -1,24 +1,23 @@
 <html>
 <head>
-	<link rel="stylesheet" href="styles/bootstrap.css" />
-	<link rel="stylesheet" href="styles/jquery-ui.css" />
+	<link rel="stylesheet" href="static/jquery-ui.css" />
 	
-	<script src="scripts/jquery.js"></script>
-	<script src="scripts/jquery-ui.js"></script>
-	<script src="scripts/angular.js"></script>
-	<script src="scripts/hraAutocomplete.822cfa5.min.js"></script>
-
+	<script src="static/jquery.js"></script>
+	<script src="static/jquery-ui.js"></script>
+	<script src="static/angular.js"></script>
+	<script src="static/hraAutocomplete.822cfa5.min.js"></script>
 </head>
 <body ng-app="myApp">
 	<div class="form-group">
-		<label class="col-sm-3 control-label">Address: </label>
-		<div class="col-sm-9 form-control" 
+		<label>Address: </label>
+		<div 
 			hra-Autocomplete ng-model="test" 
 			hra-login="pson:W51V0lvL0VmgH1LtNxgArurJEH72DDZ0"
-			hra-url="http://dev.hosted.mastersoftgroup.com"
+			hra-url="https://dev.hosted.mastersoftgroup.com"
 			hra-sot="AUPAF">
 		</div>
 	</div>
+
 	<script>
 		angular.module('myApp', [
 			'hraAutocomplete'

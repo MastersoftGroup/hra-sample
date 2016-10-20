@@ -1,8 +1,8 @@
 <html>
 <head>
-	<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<link href="static/jquery-ui.css" rel="stylesheet">
+	<script src="static/jquery.min.js"></script>
+	<script src="static/jquery-ui.js"></script>
 
 	<!-- you can download the following js from our website -->
 	<script src="https://s3-ap-southeast-2.amazonaws.com/common.mastersoftgroup.com/scripts/harmony-1.6.1.min.js" type="text/javascript"></script>
@@ -17,11 +17,11 @@
 <script>
   $(function() {
     // Use the environment based on the site it is on
-    Harmony.useEnv("http://hosted.mastersoftgroup.com");
+    Harmony.useEnv("https://dev.hosted.mastersoftgroup.com");
     
     // Init the client with the demo api user name and credential
     // We have created the following user and credential which you can use on localhost
-    Harmony.init("Maste81171", "cwdeXv4a38SPs0kLT0xZxmlvlPDibJCk", Harmony.AUSTRALIA);
+    Harmony.init("pson", "W51V0lvL0VmgH1LtNxgArurJEH72DDZ0", Harmony.AUSTRALIA);
     
     // Use the JSONP protocol
     Harmony.useProtocol(Harmony.JSONP);
