@@ -3,7 +3,9 @@
 	<script src="static/jquery.js"></script>
 </head>
 <body>
+	<label>Address: </label>
 	<input id="address" type="text" />
+
 	<script>
 		jQuery(document).ready(function($){
 			var _address = $('#address'); 
@@ -14,10 +16,10 @@
 				}
 
 				$.ajax({
-					url: "https://hosted.mastersoftgroup.com/harmony/rest/au/address?sourceOfTruth=AUPAF",
+					url: "${host}/harmony/rest/au/address?sourceOfTruth=AUPAF",
 					data: {fullAddress: _addr},
 					type: "GET",
-					beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Basic security-token');},
+					beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Basic ${token}');},
          	success: function(data) {
 						console.debug(data); 
 					}

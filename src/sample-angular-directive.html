@@ -5,15 +5,15 @@
 	<script src="static/jquery.js"></script>
 	<script src="static/jquery-ui.js"></script>
 	<script src="static/angular.js"></script>
-	<script src="static/hraAutocomplete.822cfa5.min.js"></script>
+	<script src="static/hraAutocomplete.js"></script>
 </head>
 <body ng-app="myApp">
 	<div class="form-group">
 		<label>Address: </label>
 		<div 
 			hra-Autocomplete ng-model="test" 
-			hra-login="pson:W51V0lvL0VmgH1LtNxgArurJEH72DDZ0"
-			hra-url="https://dev.hosted.mastersoftgroup.com"
+			hra-login="${username}:${password}"
+			hra-url="${host}"
 			hra-sot="AUPAF">
 		</div>
 	</div>

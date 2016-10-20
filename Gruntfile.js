@@ -1,20 +1,29 @@
 module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
+	
+	var extend = require('util')._extend;
+	var pkg = grunt.file.readJSON('package.json'); 
 
-	//grunt.loadNpmTasks('grunt-bower');
 	grunt.initConfig({
+		appCfg: extend({
+			username : "pson",
+			password: "W51V0lvL0VmgH1LtNxgArurJEH72DDZ0",
+			token: "cHNvbjpXNTFWMGx2TDBWbWdIMUx0TnhnQXJ1ckpFSDcyRERaMA==",
+			host: "http://dev.hosted.mastersoftgroup.com"
+		}, pkg),		
+
 		clean: {
 			dist: {
 				files: [
-					{src: ['build']}
+					{src: ['build/', 'dist/']}
 				]
 			}
 		},
 
 		copy: {
-			dist: {
+			build: {
 				files: [
-					{expand: true, cwd: 'src/', src: ['*'], dest: 'build/'},
+					/* {expand: true, cwd: 'src/', src: ['*'], dest: 'build/'}, */
 					{expand: true, cwd: 'scripts/', src: ['*'], dest: 'build/static'}
 				]
 			}
@@ -36,12 +45,66 @@ module.exports = function(grunt) {
     			}
 				}
 			}
-		}
+		},
+
+		'string-replace': {
+			build: {
+				files: [
+					{expand: true, cwd: 'src/', src: '**/*.html', dest: 'build/'} 
+				],
+				options: {
+				  replacements: [{
+				    pattern: '${username}',
+				    replacement: '<%= appCfg.username %>'
+				  }, {
+				    pattern: '${password}',
+				    replacement: '<%= appCfg.password %>'
+				  }, {
+				    pattern: '${host}',
+				    replacement: '<%= appCfg.host %>'
+				  }, {
+				    pattern: '${token}',
+				    replacement: '<%= appCfg.token %>'
+				  }]
+				}
+			}
+		},
+
+		uglify: {
+			libs: {
+				files: [ 
+				  {expand: true, cwd: 'build/static', src: '**/*.js', dest: 'build/static'}
+				]
+			}
+		},
+
+    compress: {
+        dist: {
+          options: {
+            archive: 'dist/<%= appCfg.name %>.zip'
+          },
+          files: [
+            {expand: true, cwd: 'build/', src: ['**/*']}
+          ]
+        }
+    },
 	});
 
-	grunt.registerTask('default', [
+	grunt.registerTask('build', [
 		'clean:dist',
-		'copy:dist',
+		'copy:build',
+		'string-replace:build',
 		'bower'
 	]);
+
+	grunt.registerTask('dist', [
+		'build',
+		'uglify:libs',
+    'compress:dist'
+  ]);
+
+	grunt.registerTask('default', [
+		'build'
+	]);
+
 }

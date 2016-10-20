@@ -1,0 +1,39 @@
+<html>
+<head>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	
+	<script src="static/jquery.js"></script>
+	<script src="static/angular.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="static/hra.js"></script>
+</head>
+<body ng-app="myApp">
+	<div class="form-group" ng-controller='myController'>
+		<label class="col-sm-3 control-label">Address: </label>
+			<input class="form-control" type="text" name="address1" 
+					ng-model="test" 
+					typeahead="test for test in getAddress($viewValue, 'AU')" 
+					typeahead-editable="true" 
+					typeahead-on-select='onSelect($item)' 
+					typeahead-wait-ms="300" 
+					typeahead-loading="addressLoading" 
+					ng-minlength="5"  ng-maxlength="255"/>
+	</div>
+
+	<script>
+		angular.module('myApp', [
+			'harmonyHosted.service',
+			'ui.bootstrap'
+		]).config(function(HRAServiceProvider){
+				HRAServiceProvider.setParams({
+					authToken : "${username}:${password}",
+					serviceURL: "${host}/harmony/rest/",
+					minimumInputLength: 1,
+					waitMillis: 0
+				});
+		}).controller('myController', function($scope, HRAService){
+				  $scope.getAddress = HRAService.getAddress;
+		});
+	</script>
+</body>
+</html>
