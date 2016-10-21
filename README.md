@@ -1,9 +1,9 @@
 Harmony Rapid Address (HRA) examples
 =================================
-This document gives you a quick jump-start to use JavaScript to query HRA Restful services.
+This document gives you a quick jump-start to use JavaScript to query [Mastersoft Group](http://www.mastersoftgroup.com) HRA Restful services.
 
-How to use the project
-----------------------
+###How to use the project
+
 There are two ways to use the projects:
 
  - If you just want to try with a working example without the hassle of setting up the environment, select [releases](https://github.com/MastersoftGroup/hra-sample/releases) and download the version you are interested in to deploy on your local *HTTP* server.
@@ -18,8 +18,8 @@ There are two ways to use the projects:
 	grunt --help #to see all available tasks.
 	```
 
-Examples
---------
+###Examples
+
 *sample-jquery.js* a simple example using only jQuery to demo how to make cross-domain requests to the service.
 
 ---
@@ -34,7 +34,6 @@ Examples
 
 *sample-angular-service.js* an example using Angular JS (1.x) *service* to request the service.
 
-API documents
--------------
-The more detailed document can be found at http://developer.mastersoftgroup.com/harmony/api/method/address.html.
+###API documents
 
+The more details document can be found at http://developer.mastersoftgroup.com/harmony/api/method/address.html.

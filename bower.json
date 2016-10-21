@@ -24,6 +24,7 @@
   "dependencies": {
     "jquery": "1.11.2",
     "jquery-ui": "^1.11.2",
-		"angular": "^1.4.0"
+    "angular": "^1.4.0",
+    "harmony-js": "0.0.5"
   }
 }

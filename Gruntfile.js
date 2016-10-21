@@ -35,6 +35,9 @@ module.exports = function(grunt) {
 				options: {
       		keepExpandedHierarchy: false,
 					packageSpecific: {
+						'harmony-js': {
+							files : ["*.js"]
+						},
 						'jquery-ui': {
 							stripGlobBase: true,
           		files: [
