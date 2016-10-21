@@ -1,16 +1,18 @@
 <html>
 <head>
-	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<!-- TODO remove to simplify -->
+	<link rel="stylesheet" href="static/bootstrap.min.css" />
 	
 	<script src="static/jquery.js"></script>
 	<script src="static/angular.js"></script>
-	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 	<script src="static/hra.js"></script>
+	<!-- TODO remove to simplify -->
+	<script src="static/ui-bootstrap-tpls.min.js"></script>
 </head>
 <body ng-app="myApp">
 	<div class="form-group" ng-controller='myController'>
-		<label class="col-sm-3 control-label">Address: </label>
-			<input class="form-control" type="text" name="address1" 
+		<label class="control-label">Address: </label>
+		<input class="form-control" type="text" name="address1" 
 					ng-model="test" 
 					typeahead="test for test in getAddress($viewValue, 'AU')" 
 					typeahead-editable="true" 
