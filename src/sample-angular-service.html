@@ -12,6 +12,7 @@
 <body ng-app="myApp">
 	<div class="form-group" ng-controller='myController'>
 		<label class="control-label">Address: </label>
+		<!-- We are using Bootstrap's typeahead plugin in this example. -->
 		<input class="form-control" type="text" name="address1" 
 					ng-model="test" 
 					typeahead="test for test in getAddress($viewValue, 'AU')" 
@@ -28,8 +29,11 @@
 			'ui.bootstrap'
 		]).config(function(HRAServiceProvider){
 				HRAServiceProvider.setParams({
+				  // Init the client with the username and password
+					// Contact our support at 'custsupport@mastersoftgroup.com' if you do not know yours.
 					authToken : "${username}:${password}",
 					serviceURL: "${host}/harmony/rest/",
+					// Using typeahead attributes to control these features.
 					minimumInputLength: 1,
 					waitMillis: 0
 				});

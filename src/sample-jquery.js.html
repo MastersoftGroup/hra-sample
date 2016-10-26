@@ -5,27 +5,55 @@
 <body>
 	<label>Address: </label>
 	<input id="address" type="text" />
+	<label id="summary"></label>
+	<ul id="result"></ul>
 
 	<script>
+		var xhr, reqCounter = 0;
 		jQuery(document).ready(function($){
-			var _address = $('#address'); 
+			var _address = $('#address'),
+					_result = $('#result'),
+					_summary = $('#summary');
+ 
 			_address.on("input", function(){
 				var _addr = _address.val();
+				// min 3 chars to trigger the lookup
 				if (_addr.length <= 3){
 					return;				
 				}
+				// Prepare for displaying the new result
+				_result.empty();
+				_summary.text("No result found.");
+				// Indicate that we no longer care about the previous request
+				if (xhr) {
+					xhr.abort();
+				}
 
-				$.ajax({
+				var token = ++reqCounter;
+				//More options can be found at [http://developer.mastersoftgroup.com/harmony/api/method/address.html]
+				xhr = $.ajax({
 					url: "${host}/harmony/rest/au/address?sourceOfTruth=AUPAF",
 					data: {fullAddress: _addr},
 					type: "GET",
+					// The Secret token associated to your account
+					// Contact our support at 'custsupport@mastersoftgroup.com@mastersoftgroup.com' if you do not know yours.
 					beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Basic ${token}');},
          	success: function(data) {
-						console.debug(data); 
+						//Make sure we are using the latest result.
+						if (token != reqCounter){
+							return;
+						}
+
+						//Build the result.
+						var _payload = data.payload;
+						for (var idx = 0; idx < _payload.length; idx++){
+							_result.append('<li>' + _payload[idx].fullAddress + '</li>');
+						}
+						if (_payload.length > 0) {
+							_summary.text(_payload.length + " result(s) found.");
+						}
 					}
 				});
-
-				console.debug(_addr);			
 			})
 		})
 	</script>
