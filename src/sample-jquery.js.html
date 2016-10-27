@@ -4,7 +4,7 @@
 </head>
 <body>
 	<label>Address: </label>
-	<input id="address" type="text" />
+	<input id="address" type="text" placeholder="Type in address here" />
 	<label id="summary"></label>
 	<ul id="result"></ul>
 
@@ -36,9 +36,9 @@
 					data: {fullAddress: _addr},
 					type: "GET",
 					// The Secret token associated to your account
-					// Contact our support at 'custsupport@mastersoftgroup.com@mastersoftgroup.com' if you do not know yours.
+					// Please contact our support at 'support@mastersoftgroup.com@mastersoftgroup.com' if you do not know yours.
 					beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Basic ${token}');},
-         	success: function(data) {
+					success: function(data) {
 						//Make sure we are using the latest result.
 						if (token != reqCounter){
 							return;
