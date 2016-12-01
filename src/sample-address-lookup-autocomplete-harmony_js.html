@@ -17,28 +17,28 @@
 		$(function() {
 		  // Use the environment based on the site it is on
 		  Harmony.useEnv("${host}");
-		  
+
 		  // Init the client with the username and password
 		  // Please contact our support at 'support@mastersoftgroup.com' if you do not know yours.
-		  Harmony.init("${username}", "${password}", Harmony.AUSTRALIA);
-		  
+		  Harmony.init("${api-username}", "${credential}", Harmony.AUSTRALIA);
+
 		  // Use the JSONP protocol
 		  Harmony.useProtocol(Harmony.JSONP);
-		  
+
 		  var opt = {
 		    // min 3 chars to trigger the lookup
-		    minLength:3, 
+		    minLength:3,
 		    // skip transaction call when address selected. You need to make your own call depending on your business flow.
 		    skipTransaction: true,
-		    // define your own call back function when address selected.  
+		    // define your own call back function when address selected.
 		    onSelect: function(event, ui) {
 		      // console.log('address selected: ' + ui.item.fullAddress);
 		    }
 		  };
-		 
-		  // Configure the address lookup. 
+
+		  // Configure the address lookup.
 		  // "#rapidAddress" is referring to the input address element id
-		  Harmony.UI.addressLookup($("#rapidAddress"), "AUPAF", opt);
+		  Harmony.UI.addressLookup($("#rapidAddress"), "${sot}", opt);
 		});
 	</script>
 </body>

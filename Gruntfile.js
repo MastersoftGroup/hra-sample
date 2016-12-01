@@ -2,23 +2,25 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	var extend = require('util')._extend;
-	var pkg = grunt.file.readJSON('package.json'); 
+	var pkg = grunt.file.readJSON('package.json');
 
 	grunt.initConfig({
 		appCfg: extend({
 			//The credentials using in the examples
 			// Please contact our support at 'support@mastersoftgroup.com@mastersoftgroup.com' if you do not know yours.
-			username : "pson",
-			password: "W51V0lvL0VmgH1LtNxgArurJEH72DDZ0",
+			api_username : "pson",
+			credential: "W51V0lvL0VmgH1LtNxgArurJEH72DDZ0",
 			token: "cHNvbjpXNTFWMGx2TDBWbWdIMUx0TnhnQXJ1ckpFSDcyRERaMA==",
-			host: "http://dev.hosted.mastersoftgroup.com"
-		}, pkg),		
+			host: "http://dev.hosted.mastersoftgroup.com",
+			sot: "AUPAF"
+		}, pkg),
 
 		clean: {
 			dist: {
-				files: [
-				        {src: ['build/', 'dist/']}
-				        ]
+				files: [{src: ['build/', 'dist/']}]
+			},
+			deploy: {
+				files: [{src: ['/var/www/html/']}]
 			}
 		},
 
@@ -54,21 +56,24 @@ module.exports = function(grunt) {
 		'string-replace': {
 			build: {
 				files: [
-				        {expand: true, cwd: 'src/', src: '**/*.html', dest: 'build/'} 
+				        {expand: true, cwd: 'src/', src: '**/*.html', dest: 'build/'}
 				        ],
 				        options: {
 				        	replacements: [{
-				        		pattern: '${username}',
-				        		replacement: '<%= appCfg.username %>'
+				        		pattern: '${api-username}',
+				        		replacement: '<%= appCfg.api_username %>'
 				        	}, {
-				        		pattern: '${password}',
-				        		replacement: '<%= appCfg.password %>'
+				        		pattern: '${credential}',
+				        		replacement: '<%= appCfg.credential %>'
 				        	}, {
 				        		pattern: '${host}',
 				        		replacement: '<%= appCfg.host %>'
 				        	}, {
 				        		pattern: '${token}',
 				        		replacement: '<%= appCfg.token %>'
+				        	}, {
+				        		pattern: '${sot}',
+				        		replacement: '<%= appCfg.sot %>'
 				        	}]
 				        }
 			}
@@ -76,7 +81,7 @@ module.exports = function(grunt) {
 
 		uglify: {
 			libs: {
-				files: [ 
+				files: [
 				        {expand: true, cwd: 'build/static', src: '**/*.js', dest: 'build/static'}
 				        ]
 			}
@@ -110,5 +115,10 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', [
 	                               'build'
 	                               ]);
+
+	grunt.registerTask('deploy', [
+	                               'clean:deploy'
+	                               ]);
+
 
 }

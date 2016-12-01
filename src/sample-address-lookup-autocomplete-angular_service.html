@@ -2,7 +2,7 @@
 <head>
 	<!-- TODO remove to simplify -->
 	<link rel="stylesheet" href="static/bootstrap.min.css" />
-	
+
 	<script src="static/jquery.js"></script>
 	<script src="static/angular.js"></script>
 	<script src="static/hra.js"></script>
@@ -15,12 +15,12 @@
 		<!-- We are using Bootstrap's typeahead plugin in this example. -->
 		<input class="form-control" type="text" name="address1"
 					placeholder="Type in address here"
-					ng-model="test" 
-					typeahead="test for test in getAddress($viewValue, 'AU')" 
-					typeahead-editable="true" 
-					typeahead-on-select='onSelect($item)' 
-					typeahead-wait-ms="300" 
-					typeahead-loading="addressLoading" 
+					ng-model="test"
+					typeahead="test for test in getAddress($viewValue, 'AU')"
+					typeahead-editable="true"
+					typeahead-on-select='onSelect($item)'
+					typeahead-wait-ms="300"
+					typeahead-loading="addressLoading"
 					ng-minlength="5"  ng-maxlength="255"/>
 	</div>
 
@@ -32,7 +32,7 @@
 				HRAServiceProvider.setParams({
 					// Init the client with the username and password
 					// Please contact our support at 'support@mastersoftgroup.com' if you do not know yours.
-					authToken : "${username}:${password}",
+					authToken : "${api-username}:${credential}",
 					serviceURL: "${host}/harmony/rest/",
 					// Using typeahead attributes to control these features.
 					minimumInputLength: 1,

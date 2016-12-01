@@ -14,12 +14,12 @@
 			var _address = $('#address'),
 					_result = $('#result'),
 					_summary = $('#summary');
- 
+
 			_address.on("input", function(){
 				var _addr = _address.val();
 				// min 3 chars to trigger the lookup
 				if (_addr.length <= 3){
-					return;				
+					return;
 				}
 				// Prepare for displaying the new result
 				_result.empty();
@@ -32,7 +32,7 @@
 				var token = ++reqCounter;
 				//More options can be found at [http://developer.mastersoftgroup.com/harmony/api/method/address.html]
 				xhr = $.ajax({
-					url: "${host}/harmony/rest/au/address?sourceOfTruth=AUPAF",
+					url: "${host}/harmony/rest/au/address?sourceOfTruth=${sot}",
 					data: {fullAddress: _addr},
 					type: "GET",
 					// The Secret token associated to your account
