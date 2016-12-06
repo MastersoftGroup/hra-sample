@@ -18,16 +18,16 @@ This document gives you a quick jump-start to use JavaScript to query HRA Restfu
 	```
 
 ### Files
-###### sample-address-lookup-autocomplete-jquery.html
+`sample-address-lookup-autocomplete-jquery.html`
 a simple example using only jQuery to demo how to make cross-domain requests to the service.
 
-###### sample-address-lookup-autocomplete-harmony_js.html
+`sample-address-lookup-autocomplete-harmony_js.html`
 an example using Mastersoft library to request the service.
 
-###### sample-address-lookup-autocomplete-angular_directive.html
+`sample-address-lookup-autocomplete-angular_directive.html`
 an example using Angular JS (1.x) *directive* to request the service.
 
-###### sample-address-lookup-autocomplete-angular_service.html
+`sample-address-lookup-autocomplete-angular_service.html`
 an example using Angular JS (1.x) *service* to request the service.
 
 ### API documents
