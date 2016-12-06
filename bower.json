@@ -1,0 +1,30 @@
+{
+  "name": "hra-sample",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "MastersoftGroup"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "harmony",
+    "rapid",
+    "address",
+    "demo",
+    "sample"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.2",
+    "jquery-ui": "^1.11.2",
+    "angular": "^1.4.0",
+    "harmony-js": "0.0.6"
+  }
+}

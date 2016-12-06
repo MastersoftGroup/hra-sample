@@ -1,0 +1,32 @@
+<html>
+<head>
+	<link rel="stylesheet" href="static/jquery-ui.css" />
+
+	<script src="static/jquery.js"></script>
+	<!-- The directive requiest jquery-ui autocomplelete. -->
+	<script src="static/jquery-ui.js"></script>
+	<script src="static/angular.js"></script>
+	<script src="static/hraAutocomplete.js"></script>
+</head>
+<body ng-app="myApp">
+	<div class="form-group">
+		<label>Address: </label>
+		<!--
+		Init the client with the username and password
+		Please contact our support at 'support@mastersoftgroup.com' if you do not know yours.
+		-->
+		<div
+			hra-autocomplete ng-model="test"
+			hra-login="${api-username}:${credential}"
+			hra-url="${host}"
+			hra-sot="${sot}">
+		</div>
+	</div>
+
+	<script>
+		angular.module('myApp', [
+			'hraAutocomplete'
+		]);
+	</script>
+</body>
+</html>
