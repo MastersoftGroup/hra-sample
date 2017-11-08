@@ -16,12 +16,19 @@
 		<input class="form-control" type="text" name="address1"
 					placeholder="Type in address here"
 					ng-model="test"
-					typeahead="test for test in getAddress($viewValue, 'AU')"
+					typeahead="test as test.fullAddress for test in getAddress($viewValue, 'AU')"
 					typeahead-editable="true"
 					typeahead-on-select='onSelect($item)'
 					typeahead-wait-ms="300"
 					typeahead-loading="addressLoading"
 					ng-minlength="5"  ng-maxlength="255"/>
+		<ul>
+		  <li>street number : {{test.streetNumber}}</li>
+		  <li>street: {{test.street}}</li>
+		  <li>locality: {{test.locality}}</li>
+		  <li>state: {{test.state}}</li>
+		  <li>postcode: {{test.postcode}}</li>
+		</ul>
 	</div>
 
 	<script>
